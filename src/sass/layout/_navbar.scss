@@ -1,0 +1,9 @@
+.navbar{
+  background: $white;
+  @include light-dropshadow;
+  &__links{
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+}

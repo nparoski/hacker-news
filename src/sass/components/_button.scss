@@ -1,0 +1,12 @@
+.btn{
+  padding: 2px 24px;
+  transition: .3s ease;
+  &--primary{
+    background: $brand-primary;
+    color: $white;
+    &:hover{
+      color: $white;
+      background: $light-orange;
+    }
+  }
+}

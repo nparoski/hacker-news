@@ -1,7 +1,21 @@
-// Importing variables before bootstrap to override default variables.
+// 1. Abstracts
 @import "abstracts/variables";
+@import "abstracts/mixins";
 
-// Vendors
+// 2. Vendors
 @import "vendors/bootstrap";
 
-// Sass files
+// 3. Base stuff
+@import "./base/typography";
+
+// 4. Layout-related sections
+@import "./layout/navbar";
+
+// 5. Components
+@import "./components/button";
+
+// 6. Page-specific styles
+@import "./pages/home";
+
+// 7. Themes
+@import "./themes/default";

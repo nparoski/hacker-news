@@ -1,10 +1,16 @@
 import React, { Fragment } from 'react';
 import "./sass/main.scss";
 
+import Navbar from "./components/navbar/Navbar";
+import Feed from "./components/feed/Feed";
+
 function App() {
   return (
     <Fragment>
-      <h1>HackerNews App</h1>
+      <Navbar />
+      <div className="container">
+        <Feed />
+      </div>
     </Fragment>
   );
 }
