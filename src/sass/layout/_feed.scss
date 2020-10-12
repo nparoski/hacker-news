@@ -1,0 +1,45 @@
+.feed{
+  padding: 25px 0;
+  counter-reset: feed;
+  &__post{
+    counter-increment: feed;
+    background: $light-gray;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: px-rem(14px);
+    @include light-dropshadow;
+  }
+  &__title{
+    margin-bottom: .25rem;
+    &::before{
+      margin-right: px-rem(10px);
+      color: rgba($dark-gray, .75);
+      content: "" counter(feed) ".";
+    }
+  }
+  &__post-link{
+    &:hover{
+      color: $brand-primary;
+      text-decoration: underline;
+    }
+  }
+  &__src{
+    color: rgba($dark-gray, .75);
+    cursor: pointer;
+  }
+  &__meta{
+    margin-bottom: 0;
+    color: rgba($dark-gray, .75);
+    font-size: $text-s;
+    button{
+      @include button-reset;
+      color: $brand-secondary;
+      border-radius: 5px;
+      padding: 2px 5px;
+      &:hover{
+        color: $dark-orange;
+        background: rgba($dark-gray, .15);
+      }
+    }
+  }
+}

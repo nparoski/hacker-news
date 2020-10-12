@@ -1,3 +1,11 @@
 html{
   font-size: $rem;
 }
+
+a{
+  color: $black;
+  &:hover{
+    text-decoration: none;
+    color: $brand-secondary;
+  }
+}
