@@ -4,9 +4,10 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="container">
-        <div className="navbar__brand">
+        <a href="#" className="navbar__brand">
           <img src="/images/logo.svg" alt="Logo"/>
-        </div>
+          <span>Hacker News</span>
+        </a>
         <ul className="navbar__links">
           <li><a href="#" className="btn btn--primary">Login</a></li>
         </ul>

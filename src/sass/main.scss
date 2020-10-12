@@ -1,11 +1,13 @@
 // 1. Abstracts
 @import "abstracts/variables";
 @import "abstracts/mixins";
+@import "abstracts/functions";
 
 // 2. Vendors
 @import "vendors/bootstrap";
 
 // 3. Base stuff
+@import "./base/base";
 @import "./base/typography";
 
 // 4. Layout-related sections

@@ -5,5 +5,29 @@
     margin-bottom: 0;
     padding-left: 0;
     list-style: none;
+    display: flex;
+    align-items: center;
+    li{
+      margin: 0 px-rem(6px);
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  &__brand{
+    color: $black;
+    &:hover{
+      color: $black;
+      text-decoration: none;
+    }
+    img{
+      margin-right: px-rem(10px);
+    }
+    span{
+      font-weight: 700;
+    }
   }
 }
