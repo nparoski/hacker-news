@@ -1,22 +1,6 @@
 .navbar{
   background: $white;
   @include light-dropshadow;
-  &__links{
-    margin-bottom: 0;
-    padding-left: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    li{
-      margin: 0 px-rem(6px);
-      &:first-child{
-        margin-left: 0;
-      }
-      &:last-child{
-        margin-right: 0;
-      }
-    }
-  }
   &__brand{
     color: $black;
     &:hover{
@@ -29,5 +13,75 @@
     span{
       font-weight: 700;
     }
+  }
+  &__menu{
+    position: relative;
+  }
+  &__links{
+    display: none;
+    @include media-breakpoint-up(lg){
+      display: flex;
+    }
+    &.active{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 0px;
+      top: 43px;
+      background: $brand-secondary;
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .btn--login{
+      margin-top: 1rem;
+      @include media-breakpoint-up(lg){
+        margin-top: 0;
+        margin-left: 1rem;
+      }
+    }
+  }
+  &__link{
+    margin: .25rem .5rem;
+    color: $white;
+    @include media-breakpoint-up(lg){
+      color: $brand-secondary;
+      margin: 0 px-rem(6px);
+    }
+    &.active{
+      color: $brand-primary;
+      text-decoration: underline;
+    }
+  }
+  &__toggler{
+    @include button-reset;
+    width: 30px;
+    height: 20px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include media-breakpoint-up(lg){
+      display: none;
+    }
+    &.active{
+      .navbar__bar{
+        &:nth-child(1){
+          transform: rotate(45deg) translate(5px,5px);
+        }
+        &:nth-child(2){
+          transform: rotate(-45deg) ;
+        }
+        &:nth-child(3){
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+  }
+  &__bar{
+    transition: .3s ease;
+    height: 2px;
+    width: 100%;
+    background: $black;
   }
 }
