@@ -1,16 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import chunk from "../../helpers/_chunk"
+import Post from './Post'
 
 export default function Feed(props) {
-  
+  const [postChunks, setPostChunks] = useState([]);
+  const [postData, setPostData] = useState([]);
+
+  useEffect(() => {
+   fetch(`https://hacker-news.firebaseio.com/v0/${props.taxonomy}.json`)
+    .then(res => res.json())
+    .then(data => {
+      setPostChunks(chunk(data,25))
+    })
+  },[props.taxonomy])
+
+  useEffect(() => {
+    if(postChunks.length) {
+      postChunks[0].forEach(postId => {
+        fetch(`https://hacker-news.firebaseio.com/v0/item/${postId}.json`)
+         .then(res => res.json())
+         .then(data =>  setPostData( state => [...state,data]))
+      })
+    }
+   },[postChunks])
+   
+  const showPosts = (postData) => {
+    if(postData){
+      return postData.map((el,i) => <Post key={postData[i].id} data={postData[i]} />)
+    }
+  }
   return (
     <div className="container">
       <main className="feed">
-        <article className="feed__post">
-          <p className="feed__title"><a href="#" className="feed__post-link">Hacking together a USB-C charger for a cheap Chromebook</a> <a href="#" className="feed__src">(filippo.io)</a></p>
-          <p className="feed__meta">
-            67 points by <button>laktak</button> <button>2 hours ago</button> <button>hide</button> <button>26 comments</button>
-          </p>
-        </article>
+        {showPosts(postData)}
       </main>
     </div>
   )
