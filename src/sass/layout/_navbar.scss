@@ -32,13 +32,6 @@
       padding: 15px;
       border-radius: 5px;
     }
-    .btn--login{
-      margin-top: 1rem;
-      @include media-breakpoint-up(lg){
-        margin-top: 0;
-        margin-left: 1rem;
-      }
-    }
   }
   &__link{
     margin: .25rem .5rem;

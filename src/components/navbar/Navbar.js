@@ -21,7 +21,6 @@ export default function Navbar() {
             <NavLink exact to="/" className="navbar__link">Best</NavLink>
             <NavLink to="/stories/new" className="navbar__link">New</NavLink>
             <NavLink to="/stories/top" className="navbar__link">Top</NavLink>
-            <NavLink to="/login" className="btn btn--primary btn--login">Login</NavLink>
           </div>
         </div>
       </div>

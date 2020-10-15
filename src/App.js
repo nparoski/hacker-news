@@ -19,11 +19,6 @@ function App() {
           <Route exact path="/stories/top">
             <Feed taxonomy="topstories" />
           </Route>
-          <Route exact path="/login">
-            <div className="container text-center">
-              <h1>Login screen</h1>
-            </div>
-          </Route>
         </Switch>
       </Router>
     </Fragment>
