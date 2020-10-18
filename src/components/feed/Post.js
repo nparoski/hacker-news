@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import decodeText from "../../helpers/_decodeText"
 
 export default function Post(props) {
   const postData = props.postData;
@@ -45,7 +46,7 @@ export default function Post(props) {
             </tr>
             <tr>
               <td>About:</td>
-              <td> {userData.about ? userData.about : "Empty 👾"}</td>
+              <td className="user-profile__about" >{userData.about ? decodeText(userData.about) : "Empty 👾"}</td>
             </tr>
             <tr>
               <td>Latest posts:</td>
