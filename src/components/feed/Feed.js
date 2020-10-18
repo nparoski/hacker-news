@@ -26,9 +26,10 @@ export default function Feed(props) {
    
   const showPosts = (postData) => {
     if(postData){
-      return postData.map((el,i) => <Post key={postData[i].id} data={postData[i]} />)
+      return postData.map((el,i) => <Post key={postData[i].id} postData={postData[i]} />)
     }
   }
+
   return (
     <div className="container">
       <main className="feed">

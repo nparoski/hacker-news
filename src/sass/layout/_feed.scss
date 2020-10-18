@@ -8,6 +8,7 @@
     border-radius: 5px;
     margin-bottom: px-rem(14px);
     @include light-dropshadow;
+    position: relative;
   }
   &__title{
     margin-bottom: .25rem;
@@ -23,10 +24,6 @@
       text-decoration: underline;
     }
   }
-  &__src{
-    color: rgba($dark-gray, .75);
-    cursor: pointer;
-  }
   &__meta{
     margin-bottom: 0;
     color: rgba($dark-gray, .75);
@@ -36,9 +33,20 @@
       color: $brand-secondary;
       border-radius: 5px;
       padding: 2px 5px;
+      margin:0 2px;
       &:hover{
         color: $dark-orange;
         background: rgba($dark-gray, .15);
+      }
+    }
+  }
+  &__profile{
+    &.active{
+      color: $white;
+      background: rgba($dark-orange,.75);
+      &:hover{
+        color: $white;
+        background: $dark-orange;
       }
     }
   }

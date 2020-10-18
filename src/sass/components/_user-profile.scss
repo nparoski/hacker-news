@@ -1,0 +1,52 @@
+.user-profile{
+  position: absolute;
+  z-index: 2;
+  background: $white;
+  width: max-content;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: left;
+  display: none;
+  max-width: 260px;
+  overflow: auto;
+  border: 1px solid $brand-primary;
+  margin-top: px-rem(5px);
+  @include light-dropshadow;
+  @include media-breakpoint-up(sm){
+    max-width: 390px;
+  }
+  @include media-breakpoint-up(md){
+    max-width: 576px;
+  }
+  @include media-breakpoint-up(lg){
+    max-width: 768px;
+  }
+  &.active{
+    display: block;
+  }
+  &__close{
+    @include button-reset;
+    position: absolute;
+    right: 5px;
+    top: 0;
+  }
+  table{
+    width: max-content;
+    tr{
+      td{
+        &:first-child{
+          vertical-align: baseline;
+          padding-right: .5rem;
+          width: max-content;
+          font-weight: 600;
+        }
+        &:nth-child(2){
+          ul{
+            padding-left: 20px;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
