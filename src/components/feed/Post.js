@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import decodeText from "../../helpers/_decodeText"
 
 export default function Post(props) {
@@ -6,16 +6,12 @@ export default function Post(props) {
   const [userData, setUserData] = useState({});
   const [isUserDataVisible, setUserDataVisible] = useState(false);
 
-  useEffect(()=>{
-    if(postData){
+  const fetchUserData = () => {
+    if(postData.by && !Object.keys(userData).length){
       fetch(`https://hacker-news.firebaseio.com/v0/user/${postData.by}.json`)
         .then(res => res.json())
         .then(data => setUserData(data))
     }
-    },[postData])
-
-  const showLatestPosts = () => {
-
   }
   
   return (
@@ -23,12 +19,17 @@ export default function Post(props) {
       <p className="feed__title"><a href={postData.url} target="_blank" rel="noopener noreferrer" className="feed__post-link">{postData.title}</a></p>
       <p className="feed__meta">
         {postData.score} points by &nbsp;
-        <button className={`feed__profile ${isUserDataVisible ? "active" : ""}`} onClick={()=> setUserDataVisible(!isUserDataVisible)}>
+        <button className={`feed__profile ${isUserDataVisible ? "active" : ""}`} 
+          onClick={()=> {
+            setUserDataVisible(!isUserDataVisible);
+            fetchUserData();
+          }}
+        >
           {postData.by}
         </button>
         <button>2 hours ago</button> 
         <button>hide</button> 
-        <button>{postData.kids.length} comments</button>
+        <button>{postData.kids ? postData.kids.length : 0} comments</button>
       </p>
       <div className={`user-profile ${isUserDataVisible ? "active" : ""}`}>
         <button className="user-profile__close" onClick={() => setUserDataVisible(!isUserDataVisible)}>
@@ -46,16 +47,14 @@ export default function Post(props) {
             </tr>
             <tr>
               <td>About:</td>
-              <td className="user-profile__about" >{userData.about ? decodeText(userData.about) : "Empty 👾"}</td>
+              <td className="user-profile__about">
+                {userData.about ? decodeText(userData.about) : "Empty 👾"}
+              </td>
             </tr>
             <tr>
-              <td>Latest posts:</td>
+              <td>Recent Activity:</td>
               <td>
-                <ul>
-                  <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque, voluptas?</li>
-                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et ipsam accusantium in sunt obcaecati temporibus.</li>
-                  <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-                </ul>
+                {/* {getLatestsPosts(3)} */}
               </td>
             </tr>
           </tbody>
