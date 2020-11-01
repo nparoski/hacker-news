@@ -22,7 +22,7 @@ export default function Feed(props) {
           .then((data) => setPostData((state) => [...state, data]))
       })
     }
-  }, [postChunks])
+  }, [postChunks, setPostData])
 
   const showPosts = (postData) => {
     if (postData) {

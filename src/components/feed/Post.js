@@ -38,7 +38,6 @@ export default function Post(props) {
           {postData.by}
         </button>
         <button>2 hours ago</button>
-        <button>hide</button>
         <button>{postData.kids ? postData.kids.length : 0} comments</button>
       </p>
       <div className={`user-profile ${isUserDataVisible ? 'active' : ''}`}>
