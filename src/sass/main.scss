@@ -1,25 +1,25 @@
 // 1. Abstracts
-@import "abstracts/variables";
-@import "abstracts/mixins";
-@import "abstracts/functions";
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
 
 // 2. Vendors
-@import "vendors/bootstrap";
+@import 'vendors/bootstrap';
 
 // 3. Base stuff
-@import "./base/base";
-@import "./base/typography";
+@import './base/base';
+@import './base/typography';
 
 // 4. Layout-related sections
-@import "./layout/navbar";
-@import "./layout/feed";
+@import './layout/navbar';
+@import './layout/feed';
 
 // 5. Components
-@import "./components/button";
-@import "./components/user-profile";
+@import './components/button';
+@import './components/user-profile';
 
 // 6. Page-specific styles
-@import "./pages/home";
+@import './pages/home';
 
 // 7. Themes
-@import "./themes/default";
+@import './themes/default';

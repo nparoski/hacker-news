@@ -1,10 +1,10 @@
-html{
+html {
   font-size: $rem;
 }
 
-a{
+a {
   color: $black;
-  &:hover{
+  &:hover {
     text-decoration: none;
     color: $brand-secondary;
   }

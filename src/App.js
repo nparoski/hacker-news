@@ -1,14 +1,14 @@
-import React, { Fragment } from 'react';
-import { BrowserRouter as Router,  Switch,  Route} from "react-router-dom";
-import "./sass/main.scss";
-import Navbar from "./components/navbar/Navbar";
-import Feed from "./components/feed/Feed";
+import React, { Fragment } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import './sass/main.scss'
+import Navbar from './components/navbar/Navbar'
+import Feed from './components/feed/Feed'
 
 function App() {
   return (
     <Fragment>
       <Router>
-      <Navbar />
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <Feed taxonomy="beststories" />
@@ -22,7 +22,7 @@ function App() {
         </Switch>
       </Router>
     </Fragment>
-  );
+  )
 }
 
-export default App;
+export default App

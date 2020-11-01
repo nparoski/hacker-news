@@ -1,7 +1,7 @@
-.feed{
+.feed {
   padding: 25px 0;
   counter-reset: feed;
-  &__post{
+  &__post {
     counter-increment: feed;
     background: $light-gray;
     padding: 15px;
@@ -10,41 +10,41 @@
     @include light-dropshadow;
     position: relative;
   }
-  &__title{
-    margin-bottom: .25rem;
-    &::before{
+  &__title {
+    margin-bottom: 0.25rem;
+    &::before {
       margin-right: px-rem(10px);
-      color: rgba($dark-gray, .75);
-      content: "" counter(feed) ".";
+      color: rgba($dark-gray, 0.75);
+      content: '' counter(feed) '.';
     }
   }
-  &__post-link{
-    &:hover{
+  &__post-link {
+    &:hover {
       color: $brand-primary;
       text-decoration: underline;
     }
   }
-  &__meta{
+  &__meta {
     margin-bottom: 0;
-    color: rgba($dark-gray, .75);
+    color: rgba($dark-gray, 0.75);
     font-size: $text-s;
-    button{
+    button {
       @include button-reset;
       color: $brand-secondary;
       border-radius: 5px;
       padding: 2px 5px;
-      margin:0 2px;
-      &:hover{
+      margin: 0 2px;
+      &:hover {
         color: $dark-orange;
-        background: rgba($dark-gray, .15);
+        background: rgba($dark-gray, 0.15);
       }
     }
   }
-  &__profile{
-    &.active{
+  &__profile {
+    &.active {
       color: $white;
-      background: rgba($dark-orange,.75);
-      &:hover{
+      background: rgba($dark-orange, 0.75);
+      &:hover {
         color: $white;
         background: $dark-orange;
       }

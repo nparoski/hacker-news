@@ -1,28 +1,28 @@
-.btn{
+.btn {
   padding: 2px 24px;
-  transition: .3s ease;
+  transition: 0.3s ease;
   font-weight: 400;
   letter-spacing: 1px;
-  &:focus{
+  &:focus {
     -webkit-box-shadow: 0px 0px 0px 2px $black;
     -moz-box-shadow: 0px 0px 0px 2px $black;
     box-shadow: 0px 0px 0px 2px $black;
   }
-  &--primary{
+  &--primary {
     background: $brand-primary;
     color: $white;
     border: 1px solid $brand-primary;
-    &:hover{
+    &:hover {
       color: $white;
       background: $dark-orange;
       border: 1px solid $dark-orange;
     }
   }
-  &--secondary{
+  &--secondary {
     background: transparent;
     color: $brand-primary;
     border: 1px solid $brand-primary;
-    &:hover{
+    &:hover {
       background: $brand-primary;
       color: $white;
     }
