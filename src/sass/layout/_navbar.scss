@@ -1,5 +1,7 @@
 .navbar {
   background: $white;
+  position: relative;
+  z-index: 100;
   @include light-dropshadow;
   &__brand {
     color: $black;

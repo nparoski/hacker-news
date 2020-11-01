@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import decodeText from '../../helpers/_decodeText'
 
 export default function Post(props) {
-  const postData = props.postData
+  const { postData } = props
   const [userData, setUserData] = useState({})
   const [isUserDataVisible, setUserDataVisible] = useState(false)
 

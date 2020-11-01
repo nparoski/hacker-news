@@ -1,0 +1,39 @@
+.loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__bar {
+    border-radius: 4px;
+    border: 2px solid $brand-secondary;
+    height: 30px;
+    position: relative;
+    background: rgba($dark-gray, 0.3);
+    width: 100%;
+    max-width: 290px;
+    @include media-breakpoint-up(sm) {
+      max-width: 320px;
+    }
+  }
+  &__progress {
+    height: 100%;
+    background: $brand-primary;
+    max-width: 100%;
+    transition: 0.5s ease;
+    text-align: center;
+    font-weight: bold;
+    color: $white;
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+}
