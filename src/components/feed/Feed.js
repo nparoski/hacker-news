@@ -13,8 +13,8 @@ export default function Feed({ taxonomy }) {
   useEffect(() => {
     ;(async () => {
       try {
-        const res = await getPosts(taxonomy)
-        setPostChunks(chunk(res, 25))
+        const data = await getPosts(taxonomy)
+        setPostChunks(chunk(data, 25))
       } catch (err) {
         setPostChunks([[]])
       }
@@ -23,13 +23,15 @@ export default function Feed({ taxonomy }) {
 
   useEffect(() => {
     if (postChunks.length) {
-      postChunks[0].forEach((postId) => {
-        fetch(`https://hacker-news.firebaseio.com/v0/item/${postId}.json`)
-          .then((res) => res.json())
-          .then((data) => {
-            setPostData((state) => [...state, data])
-          })
+      postChunks[0].forEach(async (postId) => {
+        try {
+          const data = await getPost(postId)
+          setPostData((state) => [...state, data])
+        } catch (err) {
+          console.log(err)
+        }
       })
+
       setLoadProgress(100)
       setTimeout(() => {
         setLoading(false)
