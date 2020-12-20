@@ -2,22 +2,24 @@ import React, { useEffect, useState } from 'react'
 import chunk from '../../helpers/_chunk'
 import Post from './Post'
 import Loader from '../loader/Loader'
+import { getPosts, getPost } from '../../services/Api'
 
-export default function Feed(props) {
+export default function Feed({ taxonomy }) {
   const [postChunks, setPostChunks] = useState([])
   const [postData, setPostData] = useState([])
   const [isLoading, setLoading] = useState(true)
   const [loadProgress, setLoadProgress] = useState(0)
 
-  const { taxonomy } = props
-
   useEffect(() => {
-    fetch(`https://hacker-news.firebaseio.com/v0/${taxonomy}.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setPostChunks(chunk(data, 25))
-      })
-  }, [taxonomy])
+    ;(async () => {
+      try {
+        const res = await getPosts(taxonomy)
+        setPostChunks(chunk(res, 25))
+      } catch (err) {
+        setPostChunks([[]])
+      }
+    })()
+  }, [taxonomy, setPostChunks])
 
   useEffect(() => {
     if (postChunks.length) {
