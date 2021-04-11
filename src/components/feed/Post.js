@@ -17,12 +17,7 @@ export default function Post({ postData }) {
   return (
     <article className="feed__post">
       <p className="feed__title">
-        <a
-          href={postData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="feed__post-link"
-        >
+        <a href={postData.url} target="_blank" rel="noopener noreferrer" className="feed__post-link">
           {postData.title}
         </a>
       </p>
@@ -41,10 +36,7 @@ export default function Post({ postData }) {
         <button>{postData.kids ? postData.kids.length : 0} comments</button>
       </p>
       <div className={`user-profile ${isUserDataVisible ? 'active' : ''}`}>
-        <button
-          className="user-profile__close"
-          onClick={() => setUserDataVisible(!isUserDataVisible)}
-        >
+        <button className="user-profile__close" onClick={() => setUserDataVisible(!isUserDataVisible)}>
           <i className="fas fa-times"></i>
         </button>
         <table>
@@ -59,9 +51,7 @@ export default function Post({ postData }) {
             </tr>
             <tr>
               <td>About:</td>
-              <td className="user-profile__about">
-                {userData.about ? decodeText(userData.about) : 'Empty 👾'}
-              </td>
+              <td className="user-profile__about">{userData.about ? decodeText(userData.about) : 'Empty 👾'}</td>
             </tr>
             <tr>
               <td>Recent Activity:</td>

@@ -41,17 +41,13 @@ export default function Feed({ taxonomy }) {
 
   const showPosts = (postData) => {
     if (postData) {
-      return postData.map((el, i) => (
-        <Post key={postData[i].id} postData={postData[i]} />
-      ))
+      return postData.map((el, i) => <Post key={postData[i].id} postData={postData[i]} />)
     }
   }
 
   return (
     <div className="container">
-      <main className="feed">
-        {isLoading ? <Loader progress={loadProgress} /> : showPosts(postData)}
-      </main>
+      <main className="feed">{isLoading ? <Loader progress={loadProgress} /> : showPosts(postData)}</main>
     </div>
   )
 }

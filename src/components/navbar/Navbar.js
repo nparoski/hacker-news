@@ -14,9 +14,7 @@ export default function Navbar() {
         <div className="navbar__menu">
           <button
             className={`navbar__toggler ${isNavbarActive ? 'active' : ''}`}
-            onClick={() =>
-              isNavbarActive ? setNavbarActive(false) : setNavbarActive(true)
-            }
+            onClick={() => (isNavbarActive ? setNavbarActive(false) : setNavbarActive(true))}
           >
             <div className="navbar__bar"></div>
             <div className="navbar__bar"></div>
