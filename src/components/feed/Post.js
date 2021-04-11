@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import decodeText from '../../helpers/_decodeText'
+import { getUser } from '../../services/Api'
 
-export default function Post(props) {
-  const { postData } = props
+export default function Post({ postData }) {
   const [userData, setUserData] = useState({})
   const [isUserDataVisible, setUserDataVisible] = useState(false)
 
-  const fetchUserData = () => {
+  const fetchUserData = async () => {
     if (postData.by && !Object.keys(userData).length) {
-      fetch(`https://hacker-news.firebaseio.com/v0/user/${postData.by}.json`)
-        .then((res) => res.json())
-        .then((data) => setUserData(data))
+      const data = await getUser(postData.by)
+
+      setUserData(data)
     }
   }
 
@@ -65,7 +65,7 @@ export default function Post(props) {
             </tr>
             <tr>
               <td>Recent Activity:</td>
-              <td>{/* {getLatestsPosts(3)} */}</td>
+              <td>{}</td>
             </tr>
           </tbody>
         </table>

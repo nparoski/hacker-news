@@ -13,3 +13,11 @@ export async function getPost(postId) {
 
   return res.json()
 }
+
+export async function getUser(userId) {
+  const res = await fetch(
+    `https://hacker-news.firebaseio.com/v0/user/${userId}.json`
+  )
+
+  return res.json()
+}
